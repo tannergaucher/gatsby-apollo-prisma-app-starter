@@ -1,0 +1,30 @@
+scalar DateTime
+scalar Json
+
+type SuccessMessage {
+  message: String
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  password: String!
+  email: String!
+}
+
+type Query {
+  me: User
+  users: [User!]
+  hello: String!
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): AuthPayload!
+  login(email: String!, password: String): AuthPayload!
+  logout: SuccessMessage
+}

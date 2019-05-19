@@ -1,0 +1,16 @@
+#endpoint: ''
+
+datamodel: datamodel.prisma
+
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client/
+
+hooks:
+  post-deploy:
+    - prisma generate
+
+seed:
+  run: node ./prisma/seed.js
+
+endpoint: https://eu1.prisma.sh/tanner-gaucher/gatsby-app-bpilerplate/dev
