@@ -2,13 +2,10 @@ datamodel: datamodel.prisma
 
 generate:
   - generator: javascript-client
-    output: ../src/generated/prisma-client/
+    output: ./generated
 
 hooks:
   post-deploy:
     - prisma generate
 
-seed:
-  run: node ./prisma/seed.js
-
-endpoint: https://eu1.prisma.sh/tanner-gaucher/gatsby-app-bpilerplate/dev
+endpoint: https://us1.prisma.sh/tanner-gaucher/gatsby-apollo-prisma-app-boilerplate/dev

@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { useQuery } from "@apollo/react-hooks"
 
-import { Layout } from "../components/elements"
 import { IS_LOGGED_IN } from "../components/apollo/graphql"
 import { useSkyImage } from "../components/hooks/use-sky-image"
 
@@ -11,7 +10,7 @@ export default function ProtectedRoute() {
   // prettier-ignore
   const { data: { isLoggedIn } } = useQuery(IS_LOGGED_IN)
 
-  return <Layout>{isLoggedIn ? <Protected /> : <NotProtected />}</Layout>
+  return isLoggedIn ? <Protected /> : <NotProtected />
 }
 
 function Protected() {
@@ -28,8 +27,7 @@ function Protected() {
 function NotProtected() {
   return (
     <>
-      <h2>Oops, log in to view this page</h2>
-      <br />
+      <h3>You must log in to view this content</h3>
       <Link to="/login">Log In</Link>
     </>
   )

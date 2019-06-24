@@ -4,12 +4,8 @@ import gql from "graphql-tag"
 import { navigate } from "@reach/router"
 
 const SIGN_UP_MUTATION = gql`
-  mutation SIGN_UP_MUTATION(
-    $name: String!
-    $email: String!
-    $password: String!
-  ) {
-    signup(name: $name, email: $email, password: $password) {
+  mutation SIGN_UP_MUTATION($email: String!, $password: String!) {
+    signup(email: $email, password: $password) {
       token
       user {
         id
@@ -37,6 +33,7 @@ export default function Signup() {
         onSubmit={async e => {
           e.preventDefault()
           const res = await signup()
+          // write user to client too
           client.writeData({ data: { isLoggedIn: true } })
           localStorage.setItem("token", res.data.signup.token)
           navigate(`/`)

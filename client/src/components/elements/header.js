@@ -2,13 +2,10 @@ import { Link } from "gatsby"
 import React from "react"
 import { useQuery } from "@apollo/react-hooks"
 
-import { useSiteMetadata } from "../hooks/use-site-metadata"
-
 import { IS_LOGGED_IN } from "../apollo/graphql"
 import { Logout } from "../user"
 
 export default function Header() {
-  // const { title } = useSiteMetadata()
   // prettier-ignore
   const { data: { isLoggedIn }} = useQuery(IS_LOGGED_IN)
 
@@ -22,8 +19,7 @@ export default function Header() {
         fontWeight: "lighter",
       }}
     >
-      title
-      {/* <Link to="/">{title}</Link> */}
+      <Link to="/">Header</Link>
       {isLoggedIn ? <Logout /> : <Link to="/login">Log in</Link>}
     </header>
   )

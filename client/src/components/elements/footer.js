@@ -1,10 +1,6 @@
 import React from "react"
 
-import { useSiteMetadata } from "../hooks/use-site-metadata"
-
-export default function footer() {
-  const { title } = useSiteMetadata()
-
+export default function Footer() {
   return (
     <div
       style={{
@@ -15,7 +11,7 @@ export default function footer() {
         fontWeight: "lighter",
       }}
     >
-      {title}
+      Footer
     </div>
   )
 }

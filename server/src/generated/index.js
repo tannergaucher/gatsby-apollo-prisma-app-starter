@@ -12,6 +12,6 @@ var models = [
 exports.Prisma = prisma_lib_1.makePrismaClientClass({
   typeDefs,
   models,
-  endpoint: `https://eu1.prisma.sh/tanner-gaucher/gatsby-app-bpilerplate/dev`
+  endpoint: `https://us1.prisma.sh/tanner-gaucher/gatsby-apollo-prisma-app-boilerplate/dev`
 });
 exports.prisma = new exports.Prisma();
